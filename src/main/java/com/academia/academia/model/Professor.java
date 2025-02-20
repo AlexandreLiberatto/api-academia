@@ -1,5 +1,6 @@
 package com.academia.academia.model;
 
+import com.academia.academia.enun.HorarioDisponivel;
 import com.academia.academia.enun.Especialidade;
 
 public class Professor {
@@ -10,5 +11,5 @@ public class Professor {
     private String email;
     private String telefone;
     private Especialidade especialidade;
-    private Enun horarioDisponivel;
+    private HorarioDisponivel horarioDisponivel;
 }
