@@ -16,7 +16,7 @@ public class Exercicios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String descricao;
     private String equipamento;
     @Enumerated(EnumType.STRING)
