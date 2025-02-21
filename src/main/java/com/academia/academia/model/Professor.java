@@ -3,9 +3,15 @@ package com.academia.academia.model;
 import com.academia.academia.enun.HorarioDisponivel;
 import com.academia.academia.enun.Especialidade;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "aluno")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Professor {
 
     @Id
