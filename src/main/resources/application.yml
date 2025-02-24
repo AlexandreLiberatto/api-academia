@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: academia
+
+  datasource:                       # troque academia pelo nome do seu banco
+    url: jdbc:postgresql://localhost:5432/academia?createDatabaseIfNotExist=true # cria o banco de dados caso não exixta
+    username: postgres # seu usuário do banco
+    password: 11janeiro # sua senha do banco
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  error:
+    include-stacktrace: never
