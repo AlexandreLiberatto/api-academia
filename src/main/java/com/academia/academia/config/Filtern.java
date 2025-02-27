@@ -21,7 +21,9 @@ public class Filtern extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String token = buscarToken(request);
-        String usuarioLogin = tokenService.buscarUsuarioToken(token);
+        if (token != null){
+            String usuarioLogin = tokenService.buscarUsuarioToken(token);
+        }
 
         filterChain.doFilter(request, response);
     }
@@ -29,8 +31,8 @@ public class Filtern extends OncePerRequestFilter {
     private String buscarToken(HttpServletRequest request){
         var authorization = request.getHeader("Authorization");
         if (authorization == null){
-            throw new RuntimeException("Token não encontrado!");
+            return authorization.replace("Bearer ", "");
         }
-        return authorization.replace("Bearer ", "");
+        return null;
     }
 }
