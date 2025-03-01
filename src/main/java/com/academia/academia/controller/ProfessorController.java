@@ -4,6 +4,7 @@ import com.academia.academia.dto.AlunoDTO;
 import com.academia.academia.dto.ExerciciosDTO;
 import com.academia.academia.dto.ProfessorDTO;
 import com.academia.academia.service.ProfessorService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/professor")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class ProfessorController {
 
     private final ProfessorService professorService;

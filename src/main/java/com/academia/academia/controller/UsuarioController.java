@@ -2,6 +2,7 @@ package com.academia.academia.controller;
 
 import com.academia.academia.model.DadosUsuarioCadastro;
 import com.academia.academia.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;

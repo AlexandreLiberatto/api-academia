@@ -2,6 +2,7 @@ package com.academia.academia.controller;
 
 import com.academia.academia.dto.ExerciciosDTO;
 import com.academia.academia.service.ExerciciosService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/exercicios")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class ExerciciosController {
 
     private final ExerciciosService exerciciosService;

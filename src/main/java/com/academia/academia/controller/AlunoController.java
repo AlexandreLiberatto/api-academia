@@ -2,6 +2,7 @@ package com.academia.academia.controller;
 
 import com.academia.academia.dto.AlunoDTO;
 import com.academia.academia.service.AlunoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/aluno")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearer-key")
 public class AlunoController {
     private final AlunoService alunoService;
 
