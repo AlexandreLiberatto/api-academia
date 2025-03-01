@@ -14,21 +14,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/login")
 @RequiredArgsConstructor
 public class LoginController {
 
     private final AuthenticationManager autenticador;
-
     private final TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity validacaoCredenciaisUsuario(@RequestBody @Valid CredenciaisUsuarioDTO credenciais){
+    public ResponseEntity<?> validacaoCredenciaisUsuario(@RequestBody @Valid CredenciaisUsuarioDTO credenciais) {
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(credenciais.getLogin(), credenciais.getPassword());
         Authentication autenticacao = autenticador.authenticate(token);
 
-        return ResponseEntity.ok(tokenService.criarToken((Usuario) autenticacao.getPrincipal()));
+        String jwtToken = tokenService.criarToken((Usuario) autenticacao.getPrincipal());
+
+        return ResponseEntity.ok().body(Map.of("token", jwtToken));
     }
 }
